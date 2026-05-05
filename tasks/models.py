@@ -9,13 +9,11 @@ class Task(models.Model):
         ("C", "Concluída"),
     ]
 
+    title = models.CharField(max_length=255)
 
-title = models.CharField(max_length=255)
+    description = models.TextField(blank=True)
 
-description = models.TextField(blank=True)
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES, default="P")
 
-status = models.CharField(max_length=1, choices=STATUS_CHOICES, default="P")
-
-
-def __str__(self):
-    return self.title
+    def __str__(self):
+        return self.title
